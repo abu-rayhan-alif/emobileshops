@@ -1,0 +1,30 @@
+.from-control{
+
+background-color: aqua;
+
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+    padding-left: 0px;
+    padding-right: 50px;
+    width: 350px;
+}
+body{
+
+    background-color:floralwhite;
+}
+
+input[type="text"], input[type="password"], input[type="email"], textarea {
+    border: 1px solid #ddd;
+    padding: 4px;
+    padding-left: 100px;
+    padding-bottom: 10px;
+    font-family: cursive;
+}
+
+.col1 {
+    
+    margin-left: 412px;
+}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Login {% endblock title %}
+
+
+{% block css %}  
+
+<link rel='stylesheet' href='{% static 'css/login.css' %}'>  
+<link rel='stylesheet' href='{% static 'css/base.css' %}'>    
+
+{% endblock css%} 
+
+
+
+
+{% block main-content %}
+
+    
+    <div class="product-big-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-bit-title text-center">
+                        <h2>Login Area</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="container">
+    <div class="border d-flex flex-column">
+        <div class="border d-flex flex-column">
+           
+            <hr>
+            <form action="" method="post" novalidate class="shadow p-5">
+                {% csrf_token %}
+                {% for fm in form %}
+                <div class="form-group">
+                    {{fm.label_tag}}{{fm}} <small class="text-danger">{{fm.errors|striptags}}</small><br>
+                </div>
+                {% endfor %}
+                
+                
+                <small><a href="{% url 'password_reset' %}" class="forgetpassword">Forgot Password ?</a></small> <br>
+                <input type="submit" class="border1" value="Login">
+                <br>
+                <div class="text-danger1"><small>New  ? <a
+                            href="{% url 'customerregistration' %}" class="text-danger2">Create an Account</a> </small>
+                </div>
+                
+        </div>
+
+                {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                <p class="alert alert-danger my-3">{{error}}</p>
+                {% endfor %}
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- End form area -->
+
+
+{% endblock main-content %}

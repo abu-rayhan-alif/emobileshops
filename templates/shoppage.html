@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Shop Page{% endblock title %}
+
+
+{% block css %}  
+
+<link rel='stylesheet' href='{% static 'css/shoppage.css' %}'>  
+<link rel='stylesheet' href='{% static 'css/base.css' %}'>    
+
+{% endblock css%} 
+
+{% block main-content %}
+
+
+    
+    <div class="product-big-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-bit-title text-center">
+                        <h2>Shop</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+            <section >
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                        <div class="mu-our-shop-content">
+                          <div class="row">
+                            {% for t in shopproduct %}
+                            <div class="col-lg-3 col-md-3  col-sm-6">
+                              <div class="mu-our-shop-single">
+                                <figure class="mu-our-shop-img">
+                                    
+                                    <div class="single-product">
+                                        <div class="product-f-image">
+                                            <img src='{{t.product_image.url}}'alt="" height="200px">
+                                            <h2>{{t.brand}}</h2>
+                                            <h2><a href="#"><h2>{{t.product_title}}</h2></a></h2>
+                                            <div class="product-carousel-price">
+                                                <ins>{{t.discount_price}}   </ins> <del>{{t.selling_price}}</del>
+                                                
+                                        </div>
+                                         <div class="product-hover">
+                                            <form action="/add-to-cart" method="get">
+                                                <input type="hidden" name="prod_id" value="{{ t.id }}" id="prod_id">
+                                                <a href="{% url 'add-to-cart' %}" class="add-to-cart-link" onclick="event.preventDefault(); this.closest('form').submit();"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                <a href="{% url 'product-detail' t.id %}" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                            </form>
+                                            
+                                            
+                                                
+                                                
+                                            </div>
+                                        </div>
+
+
+
+                                </figure>
+                              </div>
+                            </div>
+                            {% endfor %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </section>
+                    
+
+                
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-pagination text-center">
+                        <nav>
+                          <ul class="pagination">
+                            <li>
+                              <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                              </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                              <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </nav>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock main-content %}
+

@@ -1,0 +1,21 @@
+body{
+    background-color: ivory;
+
+
+
+}
+.product-hover {
+    height: 300px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 200px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.owl-carousel .owl-item img {
+    display: block;
+    width: 108px;
+    
+}
